@@ -1,0 +1,22 @@
+.home-page-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;    /* vertically center the content */
+  align-items: flex-start;    /* align to the left horizontally */
+  padding-left: 10rem;        /* push content away from the edge */
+  box-sizing: border-box;
+}
+
+.dom-text {
+  text-align: left;
+  color: black;
+  margin-bottom: 1rem;
+}
+
+.job-text {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  width: 100vw; /* full viewport width */
+  position: relative;
+  left: -10rem; /* negate the .home-page-content padding-left */
+}
