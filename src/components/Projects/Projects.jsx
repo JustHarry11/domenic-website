@@ -4,10 +4,10 @@ import "./Projects.css";
 
 export default function Projects() {
     return (
-        <div className="project-page-content">
-            <h1 className='title-text'>Projects</h1>
-            <div className="page">
-                <div className="main">
+        <div className="page-wrapper">
+            <main className="page-main">
+                <h1 className="page-title">Projects</h1>
+                <div className="grid-wrapper">
                     <div className="grid">
                         {projects.map((project, index) => (
                             <div
@@ -29,8 +29,7 @@ export default function Projects() {
                         ))}
                     </div>
                 </div>
-            </div>
+            </main>
         </div>
     );
-
 }

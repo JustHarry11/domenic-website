@@ -1,54 +1,101 @@
-.page {
+/* Wrapper for sidebar + main content */
+.page-wrapper {
   display: flex;
-  justify-content: center;
-}
-
-.main {
-  max-width: 1200px; /* stops it from getting huge */
+  min-height: 100vh;
   width: 100%;
-  padding: 20px;
+  box-sizing: border-box;
+  background-color: rgb(174, 176, 169); /* same as sidebar */
 }
 
-.main h1 {
-  font-size: 24px;
+/* Main content container */
+.page-main {
+  flex: 1;
+  max-width: 1200px;
+  width: calc(100% - 220px); /* leave space for sidebar */
+  margin-left: 220px;        /* start content after sidebar */
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  box-sizing: border-box;
+}
+
+/* Page title */
+.page-title {
+  font-size: clamp(1.8rem, 4vw, 2rem);
   font-weight: bold;
   margin-bottom: 20px;
+  color: black;
 }
 
+/* Grid wrapper to center the entire grid */
+.grid-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Projects grid */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-auto-rows: 200px;
   gap: 20px;
+  justify-items: center;
+  width: 100%;
 }
 
-
+/* Individual project cards */
 .card {
   position: relative;
   width: 100%;
+  height: 100%;
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   transition: transform 0.2s ease;
 }
 
+.card:hover {
+  transform: scale(1.03);
+}
+
 .card-image {
   width: 100%;
-  height: 100%;          /* keeps natural ratio */
-  object-fit: cover;     /* fills without distortion */
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
-.title-text {
-  text-align: left;
-  color: black;
-  margin-bottom: 1rem;
-  padding-left: 10rem; 
-}
 
-.project-page-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;    /* vertically center the content */
-  box-sizing: border-box;
+/* ----------------- MEDIA QUERIES ----------------- */
+@media (max-width: 768px) {
+  /* Sidebar becomes top nav */
+  .navbar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+  }
+
+  /* Main content adjustments */
+  .page-main {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  /* Title scales smaller */
+  .page-title {
+    font-size: clamp(1.5rem, 5vw, 1.8rem);
+  }
+
+  /* Grid items shrink automatically */
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-auto-rows: 150px;
+  }
 }

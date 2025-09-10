@@ -13,8 +13,19 @@
   background-color: rgb(174, 176, 169);
 }
 
+
 html, body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* stops horizontal scroll */
+  height: 100%;          /* ensures full height */
+  width: 100%;
+  background-color: rgb(174, 176, 169); /* match sidebar bg */
+}
+
+/* Push content to the right of the sidebar */
+section {
+  min-height: 100vh;   /* ensures full viewport height */
+  height: 100vh;       /* forces height, avoids jump */
+  padding-left: 220px; /* sidebar offset */
+  box-sizing: border-box;
 }

@@ -1,22 +1,65 @@
-.home-page-content {
+/* Wrapper for sidebar + main content */
+.page-wrapper {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: rgb(174, 176, 169); /* same as sidebar */
+}
+
+/* Main content area */
+.page-main {
+  flex: 1;
+  max-width: 1200px;
+  width: calc(100% - 220px); /* leave space for sidebar */
+  margin-left: 220px;        /* start content after sidebar */
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;    /* vertically center the content */
-  align-items: flex-start;    /* align to the left horizontally */
-  padding-left: 10rem;        /* push content away from the edge */
+  gap: 2rem;
   box-sizing: border-box;
 }
 
+/* Home page main text */
 .dom-text {
-  text-align: left;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: bold;
   color: black;
-  margin-bottom: 1rem;
+  margin: 0;
 }
 
 .job-text {
-  color: rgb(255, 255, 255);
-  text-align: center;
-  width: 100vw; /* full viewport width */
-  position: relative;
-  left: -10rem; /* negate the .home-page-content padding-left */
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  color: white;
+  margin: 0;
+}
+
+/* ----------------- MEDIA QUERIES ----------------- */
+@media (max-width: 768px) {
+  /* Sidebar becomes top nav */
+  .navbar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+  }
+
+  /* Main content adjustments */
+  .page-main {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  /* Text scales smaller */
+  .dom-text {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+
+  .job-text {
+    font-size: clamp(0.9rem, 4vw, 1.2rem);
+  }
 }

@@ -1,35 +1,68 @@
+/* ---------- Desktop Sidebar ---------- */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  background-color: rgb(174, 176, 169);
+  width: 220px;
+  height: 100vh;
+  background-color: rgb(183, 255, 0);
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
-  gap: 2rem;
-  padding: 1rem 5%;
-  box-sizing: border-box; /* ensures padding is inside width */
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
   z-index: 1000;
-  overflow-x: auto; /* ensures content is scrollable if it still overflows */
 }
 
-.navbar::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 5%;
-  width: 90%;
-  height: 2px;
-  background-color: white;
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 3rem;
 }
 
-.navbar a {
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.nav-links a {
   cursor: pointer;
   text-decoration: none;
-  color: rgb(255, 255, 255);
+  color: white;
   font-weight: bold;
+  font-size: 1.2rem;
+  transition: color 0.3s;
 }
 
-.navbar a:hover {
+.nav-links a:hover {
   color: #000000;
+}
+
+/* ---------- Responsive: Mobile / Tablet ---------- */
+@media (max-width: 768px) {
+  .navbar {
+    position: relative;             /* remove fixed positioning */
+    width: 100%;
+    height: auto;
+    flex-direction: row;            /* horizontal layout */
+    justify-content: space-between; /* logo left, links right */
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+
+  .logo {
+    margin-bottom: 0;
+    font-size: 1.5rem;
+  }
+
+  .nav-links {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+  }
 }
