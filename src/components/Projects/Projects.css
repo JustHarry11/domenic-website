@@ -13,8 +13,7 @@
   max-width: 1200px;
   width: calc(100% - 220px); /* leave space for sidebar */
   margin-left: 220px;        /* start content after sidebar */
-  /* margin-right: 220px;        */
-  padding: 2rem;
+  /* padding: 2rem; */
   display: flex;
   flex-direction: column;
   gap: 2rem;
